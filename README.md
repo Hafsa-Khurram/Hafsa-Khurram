@@ -32,7 +32,7 @@
 <div align="center">
 
 ### 💻 Programming Languages
-<img src="https://skillicons.dev/icons?i=c" />
+<img src="https://skillicons.dev/icons?i=c,java" />
 
 ### 🔧 Tools
 <img src="https://skillicons.dev/icons?i=git,github,vscode" />
@@ -41,13 +41,14 @@
 
 ---
 
-## 🚀 Featured Project
+## 🚀 Featured Projects
 
 <div align="center">
 
 | Project | Description | Tech |
 |:--|:--|:--:|
 | 🏦 **[Banking System](https://github.com/Hafsa-Khurram/Programming-Fundamental)** | Console banking app: PIN-protected ATM (balance, withdraw, deposit, fast cash) and customer records with full CRUD and file storage | <img src="https://skillicons.dev/icons?i=c" width="30"/> |
+| 🚌 **[Bus Reservation System](https://github.com/Hafsa-Khurram/Object-Oriented-Programming)** | Java Swing app: admin login, clickable seat-map booking, payments and printable tickets, route & fare management, earnings reports | <img src="https://skillicons.dev/icons?i=java" width="30"/> |
 
 </div>
 
