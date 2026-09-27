@@ -22,7 +22,7 @@
 > — Patrick McKenzie
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/Hafsa-Khurram/Hafsa-Khurram/stats/about.svg" width="100%" alt="About Hafsa: auto-updated daily"/>
+  <img src="https://raw.githubusercontent.com/Hafsa-Khurram/Hafsa-Khurram/stats/about-card.svg" width="100%" alt="About Hafsa: auto-updated daily"/>
 </div>
 
 ---
