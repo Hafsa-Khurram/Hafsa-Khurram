@@ -86,11 +86,11 @@ flowchart LR
 <table>
   <tr>
     <td width="50%" valign="top">
-      <img src="https://github-readme-stats.vercel.app/api?username=Hafsa-Khurram&show_icons=true&theme=tokyonight&hide_border=true&title_color=C471ED&icon_color=C471ED" width="100%" alt="GitHub Stats"/>
+      <img src="https://raw.githubusercontent.com/Hafsa-Khurram/Hafsa-Khurram/stats/stats.svg" width="100%" alt="GitHub Stats"/>
       <br/>
-      <img src="https://github-readme-streak-stats.herokuapp.com/?user=Hafsa-Khurram&theme=tokyonight&hide_border=true&ring=C471ED&fire=C471ED&currStreakLabel=C471ED" width="100%" alt="GitHub Streak"/>
+      <img src="https://raw.githubusercontent.com/Hafsa-Khurram/Hafsa-Khurram/stats/streak.svg" width="100%" alt="GitHub Streak"/>
       <br/>
-      <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Hafsa-Khurram&theme=tokyonight&hide_border=true&layout=compact&title_color=C471ED" width="100%" alt="Top Languages"/>
+      <img src="https://raw.githubusercontent.com/Hafsa-Khurram/Hafsa-Khurram/stats/top-langs.svg" width="100%" alt="Top Languages"/>
     </td>
     <td width="50%" valign="center">
       <img src="https://user-images.githubusercontent.com/74038190/221352989-518609ab-b4d1-459e-929f-a08cd2bd9b3c.gif" width="100%" alt="Coding GIF"/>
@@ -102,7 +102,7 @@ flowchart LR
 
 ## 📈 Activity Graph
 
-[![Hafsa's GitHub activity graph](https://github-readme-activity-graph.vercel.app/graph?username=Hafsa-Khurram&theme=tokyo-night&hide_border=true&color=C471ED&line=C471ED&point=ffffff)](https://github.com/ashutosh00710/github-readme-activity-graph)
+<img src="https://raw.githubusercontent.com/Hafsa-Khurram/Hafsa-Khurram/stats/activity-graph.svg" width="100%" alt="Hafsa's GitHub activity graph"/>
 
 ---
 
