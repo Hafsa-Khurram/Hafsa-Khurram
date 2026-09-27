@@ -5,7 +5,10 @@ Generates the cards shown on the profile README:
 Runs inside GitHub Actions, using the GITHUB_TOKEN to read public data
 from the GitHub GraphQL API. Only the Python standard library is used.
 
-Usage: python scripts/generate_stats.py <username> <output-dir>
+It also refreshes the "Latest Updates" table in README.md (between the
+LATEST-UPDATES markers) with the newest commit of each public repository.
+
+Usage: python scripts/generate_stats.py <username> <output-dir> [README.md]
 """
 
 import base64
@@ -560,8 +563,90 @@ def about_terminal_svg(data):
 """
 
 
+RECENT_QUERY = """
+query($login: String!) {
+  user(login: $login) {
+    repositories(ownerAffiliations: OWNER, privacy: PUBLIC, isFork: false, first: 8,
+                 orderBy: {field: PUSHED_AT, direction: DESC}) {
+      nodes {
+        name
+        url
+        primaryLanguage { name }
+        defaultBranchRef {
+          target { ... on Commit { messageHeadline committedDate url } }
+        }
+      }
+    }
+  }
+}
+"""
+
+LANGUAGE_ICONS = {"Java": "java", "C": "c", "C++": "cpp", "C#": "cs", "Python": "py", "JavaScript": "js",
+                  "TypeScript": "ts", "HTML": "html", "CSS": "css", "Kotlin": "kotlin", "Dart": "dart"}
+
+README_START = "<!--LATEST-UPDATES:START-->"
+README_END = "<!--LATEST-UPDATES:END-->"
+
+
+def fetch_recent_repos(login):
+    """Public repositories, most recently pushed first, with their newest commit."""
+    nodes = graphql(RECENT_QUERY, {"login": login})["user"]["repositories"]["nodes"]
+    repos = []
+    for repo in nodes:
+        # The profile repo itself is skipped: its commits are only README and card updates.
+        commit = (repo.get("defaultBranchRef") or {}).get("target")
+        if repo["name"].lower() == login.lower() or not commit:
+            continue
+        repos.append({
+            "name": repo["name"],
+            "url": repo["url"],
+            "language": (repo.get("primaryLanguage") or {}).get("name", ""),
+            "message": commit["messageHeadline"],
+            "commit_url": commit["url"],
+            "date": dt.datetime.fromisoformat(commit["committedDate"].replace("Z", "+00:00")).date(),
+        })
+    return repos[:5]
+
+
+def latest_updates_markdown(repos):
+    """Markdown table for the README. Uses fixed dates, so it only changes when there is a new commit."""
+    if not repos:
+        return "_No public projects yet._"
+    lines = ["| Project | Language | Latest change | Date |", "|:--|:--:|:--|:--:|"]
+    for repo in repos:
+        lang = repo["language"]
+        icon = LANGUAGE_ICONS.get(lang)
+        lang_cell = f'<img src="https://skillicons.dev/icons?i={icon}" width="24" title="{lang}"/>' if icon else (lang or "-")
+        message = repo["message"].replace("|", "\\|")
+        if len(message) > 70:
+            message = message[:67] + "..."
+        lines.append(f'| 📁 **[{repo["name"]}]({repo["url"]})** | {lang_cell} | [{message}]({repo["commit_url"]}) '
+                     f'| {repo["date"]:%d %b %Y} |')
+    return "\n".join(lines)
+
+
+def update_readme(path, markdown):
+    """Replaces the text between the markers. Returns True when the file changed."""
+    with open(path, encoding="utf-8") as f:
+        text = f.read()
+    start = text.find(README_START)
+    end = text.find(README_END)
+    if start < 0 or end < start:
+        print("README markers not found, skipping latest updates")
+        return False
+    new_text = text[:start + len(README_START)] + "\n\n" + markdown + "\n\n" + text[end:]
+    if new_text == text:
+        return False
+    with open(path, "w", encoding="utf-8") as f:
+        f.write(new_text)
+    return True
+
+
 def main():
     login, out_dir = sys.argv[1], sys.argv[2]
+    if len(sys.argv) > 3:
+        changed = update_readme(sys.argv[3], latest_updates_markdown(fetch_recent_repos(login)))
+        print("README latest updates", "changed" if changed else "unchanged")
     data = fetch_data(login)
     os.makedirs(out_dir, exist_ok=True)
     files = {

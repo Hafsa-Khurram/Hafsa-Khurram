@@ -48,7 +48,26 @@
 | Project | Description | Tech |
 |:--|:--|:--:|
 | 🏦 **[Banking System](https://github.com/Hafsa-Khurram/Programming-Fundamental)** | Console banking app: PIN-protected ATM (balance, withdraw, deposit, fast cash) and customer records with full CRUD and file storage | <img src="https://skillicons.dev/icons?i=c" width="30"/> |
-| 🚌 **[Bus Reservation System](https://github.com/Hafsa-Khurram/Object-Oriented-Programming)** | Java Swing app: admin login, clickable seat-map booking, payments and printable tickets, route & fare management, earnings reports | <img src="https://skillicons.dev/icons?i=java" width="30"/> |
+| 🚌 **[Bus Reservation System](https://github.com/Hafsa-Khurram/Object-Oriented-Programming)** | Java Swing app: admin login, clickable seat map with Business & Economy seats, payments and printable tickets, route & fare management, sortable bookings and route-wise earnings reports | <img src="https://skillicons.dev/icons?i=java" width="30"/> |
+
+</div>
+
+---
+
+## ⚡ Latest Updates
+
+<div align="center">
+
+<!--LATEST-UPDATES:START-->
+
+| Project | Language | Latest change | Date |
+|:--|:--:|:--|:--:|
+| 📁 **[Object-Oriented-Programming](https://github.com/Hafsa-Khurram/Object-Oriented-Programming)** | <img src="https://skillicons.dev/icons?i=java" width="24" title="Java"/> | Fix empty Route Details in Reports | 27 Sep 2026 |
+| 📁 **[Programming-Fundamental](https://github.com/Hafsa-Khurram/Programming-Fundamental)** | <img src="https://skillicons.dev/icons?i=c" width="24" title="C"/> | Ignore zip archives | 27 Sep 2026 |
+
+<!--LATEST-UPDATES:END-->
+
+<sub>Updates automatically every 6 hours</sub>
 
 </div>
 
