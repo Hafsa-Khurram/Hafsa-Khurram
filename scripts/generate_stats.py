@@ -52,6 +52,7 @@ query($login: String!) {
     repositories(ownerAffiliations: OWNER, isFork: false, first: 100, privacy: PUBLIC) {
       totalCount
       nodes {
+        name
         stargazerCount
         languages(first: 10, orderBy: {field: SIZE, direction: DESC}) {
           edges { size node { name color } }
@@ -102,6 +103,8 @@ def fetch_data(login):
     stars = 0
     for repo in user["repositories"]["nodes"]:
         stars += repo["stargazerCount"]
+        if repo["name"].lower() == login.lower():
+            continue  # skip the profile README repo: its helper script is not real project code
         for edge in repo["languages"]["edges"]:
             name = edge["node"]["name"]
             color = edge["node"]["color"] or "#858585"
