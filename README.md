@@ -8,8 +8,8 @@
 <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=24&pause=1200&color=C471ED&center=true&vCenter=true&width=600&lines=Software+Developer;COMSATS+Graduate;C+Programmer;Always+Learning+%26+Building" alt="Typing SVG" />
 
 <p>
-  <img src="https://komarev.com/ghpvc/?username=Hafsa-Khurram&color=C471ED&style=flat-square&label=Profile+Views" alt="Profile views"/>
-  <a href="https://github.com/Hafsa-Khurram?tab=followers"><img src="https://img.shields.io/github/followers/Hafsa-Khurram?label=Followers&style=social" alt="Followers"/></a>
+  <a href="https://github.com/Hafsa-Khurram?tab=followers"><img src="https://img.shields.io/github/followers/Hafsa-Khurram?label=Followers&style=for-the-badge&color=C471ED&labelColor=1a1b27" alt="Followers"/></a>
+  <a href="https://github.com/Hafsa-Khurram?tab=repositories"><img src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.github.com%2Fusers%2FHafsa-Khurram&query=%24.public_repos&label=Repositories&style=for-the-badge&color=C471ED&labelColor=1a1b27" alt="Repositories"/></a>
 </p>
 
 </div>
@@ -22,35 +22,7 @@
 > — Patrick McKenzie
 
 <div align="center">
-
-```mermaid
-%%{init: {"flowchart": {"nodeSpacing": 25, "rankSpacing": 55}}}%%
-flowchart LR
-    ME(("👩‍💻 HAFSA KHURRAM"))
-
-    ME --> ED["🎓 Education"]
-    ED --> ED1[COMSATS University]
-
-    ME --> CW["🚀 Currently Working On"]
-    CW --> CW1[C Programming Projects]
-    CW --> CW2[Growing My Portfolio]
-
-    ME --> EX["💡 Skilled In"]
-    EX --> EX1[C Programming]
-    EX --> EX2[File Handling & CRUD Apps]
-    EX --> EX3[Problem Solving]
-
-    ME --> COL["🤝 Open To"]
-    COL --> COL1[Collaboration]
-    COL --> COL2[Learning Together]
-
-    style ME fill:#6A1B9A,stroke:#4A148C,stroke-width:2px,color:#fff
-    style ED fill:#C471ED,stroke:#8E24AA,color:#fff
-    style CW fill:#C471ED,stroke:#8E24AA,color:#fff
-    style EX fill:#C471ED,stroke:#8E24AA,color:#fff
-    style COL fill:#C471ED,stroke:#8E24AA,color:#fff
-```
-
+  <img src="https://raw.githubusercontent.com/Hafsa-Khurram/Hafsa-Khurram/stats/about.svg" width="100%" alt="About Hafsa: auto-updated daily"/>
 </div>
 
 ---
@@ -122,6 +94,14 @@ flowchart LR
     <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Hafsa-Khurram/Hafsa-Khurram/output/pacman-contribution-graph.svg" />
     <img src="https://raw.githubusercontent.com/Hafsa-Khurram/Hafsa-Khurram/output/pacman-contribution-graph.svg" alt="Pacman contribution animation" />
   </picture>
+</div>
+
+---
+
+<h2 align="center">👀 Profile Views</h2>
+
+<div align="center">
+  <img src="https://count.getloli.com/@Hafsa-Khurram?name=Hafsa-Khurram&theme=3d-num&padding=7&offset=0&align=top&scale=1&pixelated=1&darkmode=auto" alt="Profile view counter"/>
 </div>
 
 ---

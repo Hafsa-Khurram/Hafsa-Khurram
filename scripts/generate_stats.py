@@ -1,6 +1,6 @@
 """
-Generates the GitHub stats cards shown on the profile README:
-  stats.svg, top-langs.svg, streak.svg, activity-graph.svg
+Generates the cards shown on the profile README:
+  about.svg, stats.svg, top-langs.svg, streak.svg, activity-graph.svg
 
 Runs inside GitHub Actions, using the GITHUB_TOKEN to read public data
 from the GitHub GraphQL API. Only the Python standard library is used.
@@ -45,7 +45,9 @@ USER_QUERY = """
 query($login: String!) {
   user(login: $login) {
     name
+    createdAt
     followers { totalCount }
+    following { totalCount }
     pullRequests { totalCount }
     issues { totalCount }
     repositoriesContributedTo(contributionTypes: [COMMIT, PULL_REQUEST, ISSUE]) { totalCount }
@@ -119,6 +121,8 @@ def fetch_data(login):
         "issues": user["issues"]["totalCount"],
         "contributed": user["repositoriesContributedTo"]["totalCount"],
         "followers": user["followers"]["totalCount"],
+        "following": user["following"]["totalCount"],
+        "since": user["createdAt"][:4],
         "repos": user["repositories"]["totalCount"],
         "languages": languages,
         "days": days,
@@ -264,11 +268,76 @@ def activity_svg(data):
     return card(width, height, f"{data['name']}'s Contribution Graph (last 31 days)", body)
 
 
+def about_svg(data):
+    """A code-editor style 'About Me' card. Numbers and languages update daily."""
+    today = dt.date.today()
+    year_ago = today - dt.timedelta(days=365)
+    yearly = sum(count for date, count in data["days"].items() if date > year_ago)
+    langs = sorted(data["languages"].items(), key=lambda item: item[1][0], reverse=True)
+    lang_list = ", ".join(f'"{escape(name)}"' for name, _ in langs[:6]) or '"C"'
+
+    kw, typ, fld, st, num, com, txt = ACCENT, "#7dcfff", "#e0af68", "#9ece6a", "#ff9e64", "#565f89", TEXT
+
+    def field(name, value, color):
+        return (f'<tspan fill="{txt}">    .</tspan><tspan fill="{fld}">{name:<14}</tspan>'
+                f'<tspan fill="{txt}">= </tspan><tspan fill="{color}">{value}</tspan><tspan fill="{txt}">,</tspan>')
+
+    lines = [
+        f'<tspan fill="{com}">// about_me.c  -  updates automatically every day</tspan>',
+        f'<tspan fill="{kw}">#include</tspan> <tspan fill="{st}">&lt;passion.h&gt;</tspan>',
+        "",
+        f'<tspan fill="{kw}">struct</tspan> <tspan fill="{typ}">Developer</tspan> <tspan fill="{txt}">hafsa = {{</tspan>',
+        field("name", f'"{escape(data["name"])}"', st),
+        field("role", '"Software Developer"', st),
+        field("education", '"COMSATS University"', st),
+        field("languages", "{" + lang_list + "}", st),
+        field("repositories", data["repos"], num),
+        field("followers", data["followers"], num),
+        field("following", data["following"], num),
+        field("stars_earned", data["stars"], num),
+        field("contributions", yearly, num) + f'<tspan fill="{com}">  // last 12 months</tspan>',
+        field("github_since", data["since"], num),
+        field("motto", '"Keep learning, keep building"', st),
+        f'<tspan fill="{txt}">}};</tspan>',
+        "",
+        f'<tspan fill="{com}">// Last updated: {today:%d %b %Y}</tspan>',
+    ]
+
+    width, top, step = 760, 70, 22
+    height = top + step * len(lines) + 10
+    body = f"""  <rect x="0.5" y="0.5" rx="8" width="{width - 1}" height="{height - 1}" fill="{BG}" stroke="{GRID}"/>
+  <rect x="0.5" y="0.5" rx="8" width="{width - 1}" height="36" fill="#16161e"/>
+  <rect x="0.5" y="28" width="{width - 1}" height="9" fill="#16161e"/>
+  <circle cx="22" cy="18" r="6" fill="#ff5f56"/>
+  <circle cx="42" cy="18" r="6" fill="#ffbd2e"/>
+  <circle cx="62" cy="18" r="6" fill="#27c93f"/>
+  <text x="{width / 2}" y="23" text-anchor="middle" class="tab">about_me.c</text>
+"""
+    for i, line in enumerate(lines):
+        y = top + i * step
+        body += f'  <text x="20" y="{y}" class="ln" text-anchor="end" dx="12">{i + 1}</text>\n'
+        if line:
+            body += f'  <text x="55" y="{y}" class="code" xml:space="preserve">{line}</text>\n'
+    # Blinking cursor after the last line
+    body += (f'  <rect x="55" y="{top + len(lines) * step - 14}" width="9" height="17" fill="{ACCENT}">'
+             '<animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/></rect>\n')
+
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height + 10}" viewBox="0 0 {width} {height + 10}">
+  <style>
+    .code {{ font: 400 15px 'Fira Code', Consolas, 'Courier New', monospace; }}
+    .ln {{ font: 400 13px Consolas, 'Courier New', monospace; fill: #3b4261; }}
+    .tab {{ font: 400 13px {FONT}; fill: {MUTED}; }}
+  </style>
+{body}</svg>
+"""
+
+
 def main():
     login, out_dir = sys.argv[1], sys.argv[2]
     data = fetch_data(login)
     os.makedirs(out_dir, exist_ok=True)
     files = {
+        "about.svg": about_svg(data),
         "stats.svg": stats_svg(data),
         "top-langs.svg": top_langs_svg(data),
         "streak.svg": streak_svg(data),
