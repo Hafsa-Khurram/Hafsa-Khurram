@@ -5,7 +5,7 @@
 
 <h1><img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="30px"/> Hi there! I'm Hafsa Khurram</h1>
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=24&pause=1200&color=C471ED&center=true&vCenter=true&width=600&lines=Software+Developer;COMSATS+Graduate;C+Programmer;Always+Learning+%26+Building" alt="Typing SVG" />
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=24&pause=1200&color=C471ED&center=true&vCenter=true&width=600&lines=Software+Developer;COMSATS+Graduate;C+%26+Java+Programmer;OOP+%26+Desktop+Apps;Always+Learning+%26+Building" alt="Typing SVG" />
 
 <p>
   <a href="https://github.com/Hafsa-Khurram?tab=followers"><img src="https://img.shields.io/github/followers/Hafsa-Khurram?label=Followers&style=for-the-badge&color=C471ED&labelColor=1a1b27" alt="Followers"/></a>
@@ -81,7 +81,8 @@
 
 ## 🎯 Current Focus
 
-- 🛠️ **Building:** Practical projects to grow my portfolio
+- 🛠️ **Building:** Java desktop apps with Swing, like my Bus Reservation System
+- 🧩 **Practising:** Object-oriented design, clean code and data validation
 - 📚 **Learning:** New tools and languages every day
 - ⚡ **Fun fact:** I enjoy turning ideas into working programs
 

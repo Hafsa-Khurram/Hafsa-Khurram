@@ -435,20 +435,26 @@ def about_neofetch_svg(data):
 """
 
 
+# Lighter palette used only by the profile card (about-card.svg)
+CARD_BG = "#2b2e48"
+CARD_TILE = "#3a3e63"
+CARD_LINE = "#4a4f78"
+
+
 def about_card_svg(data):
     """Modern profile card: avatar, name, stat tiles and language pills."""
     today, yearly, langs = about_common(data)
     width, height = 860, 330
     body = f"""  <defs>
     <linearGradient id="hdr" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#6A1B9A"/><stop offset="1" stop-color="{ACCENT}"/>
+      <stop offset="0" stop-color="#9C5BD1"/><stop offset="1" stop-color="#DDA8F7"/>
     </linearGradient>
     <clipPath id="avatar"><circle cx="140" cy="130" r="70"/></clipPath>
   </defs>
-  <rect x="0.5" y="0.5" rx="14" width="{width - 1}" height="{height - 1}" fill="{BG}" stroke="{GRID}"/>
+  <rect x="0.5" y="0.5" rx="14" width="{width - 1}" height="{height - 1}" fill="{CARD_BG}" stroke="{CARD_LINE}"/>
   <rect x="0.5" y="0.5" rx="14" width="{width - 1}" height="90" fill="url(#hdr)"/>
   <rect x="0.5" y="70" width="{width - 1}" height="21" fill="url(#hdr)"/>
-  <circle cx="140" cy="130" r="76" fill="{BG}"/>
+  <circle cx="140" cy="130" r="76" fill="{CARD_BG}"/>
   <circle cx="140" cy="130" r="73" fill="none" stroke="{ACCENT}" stroke-width="3"/>
 """
     if data.get("avatar"):
@@ -459,14 +465,14 @@ def about_card_svg(data):
   <text x="140" y="264" text-anchor="middle" class="role">Software Developer</text>
   <text x="140" y="290" text-anchor="middle" class="sub">🎓 COMSATS University</text>
   <text x="140" y="312" text-anchor="middle" class="sub">📅 On GitHub since {data['since']}</text>
-  <line x1="280" y1="115" x2="280" y2="305" stroke="{GRID}"/>
+  <line x1="280" y1="115" x2="280" y2="305" stroke="{CARD_LINE}"/>
 """
     tiles = [("👥", data["followers"], "Followers"), ("🤝", data["following"], "Following"),
              ("📦", data["repos"], "Repositories"), ("⭐", data["stars"], "Stars"), ("🔥", yearly, "Contributions")]
     tw, gap, tx = 100, 12, 305
     for i, (icon, value, label) in enumerate(tiles):
         x = tx + i * (tw + gap)
-        body += f"""  <rect x="{x}" y="112" width="{tw}" height="92" rx="10" fill="#222436" stroke="{GRID}"/>
+        body += f"""  <rect x="{x}" y="112" width="{tw}" height="92" rx="10" fill="{CARD_TILE}" stroke="{CARD_LINE}"/>
   <text x="{x + tw / 2}" y="138" text-anchor="middle" class="icon">{icon}</text>
   <text x="{x + tw / 2}" y="170" text-anchor="middle" class="num">{value}</text>
   <text x="{x + tw / 2}" y="192" text-anchor="middle" class="lbl">{label}</text>
@@ -475,7 +481,7 @@ def about_card_svg(data):
     px = tx
     for name, (_, color) in langs:
         w = 30 + 9 * len(name)
-        body += (f'  <rect x="{px}" y="250" width="{w}" height="28" rx="14" fill="#222436" stroke="{color}"/>\n'
+        body += (f'  <rect x="{px}" y="250" width="{w}" height="28" rx="14" fill="{CARD_TILE}" stroke="{color}"/>\n'
                  f'  <circle cx="{px + 15}" cy="264" r="5" fill="{color}"/>\n'
                  f'  <text x="{px + 25}" y="269" class="pill">{escape(name)}</text>\n')
         px += w + 10
@@ -484,14 +490,14 @@ def about_card_svg(data):
   <style>
     .name {{ font: 700 22px {FONT}; fill: #ffffff; }}
     .role {{ font: 600 15px {FONT}; fill: {ACCENT}; }}
-    .sub {{ font: 400 13px {FONT}; fill: {MUTED}; }}
+    .sub {{ font: 400 13px {FONT}; fill: #b4bbe0; }}
     .initials {{ font: 700 48px {FONT}; fill: {ACCENT}; }}
     .icon {{ font: 400 18px {FONT}; }}
     .num {{ font: 700 26px {FONT}; fill: #ffffff; }}
     .lbl {{ font: 400 12px {FONT}; fill: {MUTED}; }}
     .section {{ font: 700 12px {FONT}; fill: {ACCENT}; letter-spacing: 2px; }}
     .pill {{ font: 600 13px {FONT}; fill: {TEXT}; }}
-    .upd {{ font: 400 11px {FONT}; fill: #3b4261; }}
+    .upd {{ font: 400 11px {FONT}; fill: #8a90b8; }}
   </style>
 {body}</svg>
 """
