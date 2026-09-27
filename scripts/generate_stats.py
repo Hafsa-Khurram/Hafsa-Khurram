@@ -8,6 +8,7 @@ from the GitHub GraphQL API. Only the Python standard library is used.
 Usage: python scripts/generate_stats.py <username> <output-dir>
 """
 
+import base64
 import datetime as dt
 import json
 import os
@@ -45,6 +46,7 @@ USER_QUERY = """
 query($login: String!) {
   user(login: $login) {
     name
+    avatarUrl(size: 160)
     createdAt
     followers { totalCount }
     following { totalCount }
@@ -79,6 +81,16 @@ query($login: String!, $from: DateTime!, $to: DateTime!) {
   }
 }
 """
+
+
+def fetch_avatar(url):
+    """Avatar as a data URI: GitHub does not load external images inside SVGs."""
+    try:
+        with urllib.request.urlopen(url, timeout=30) as response:
+            kind = response.headers.get_content_type() or "image/png"
+            return f"data:{kind};base64," + base64.b64encode(response.read()).decode()
+    except OSError:
+        return ""
 
 
 def fetch_data(login):
@@ -123,6 +135,7 @@ def fetch_data(login):
         "followers": user["followers"]["totalCount"],
         "following": user["following"]["totalCount"],
         "since": user["createdAt"][:4],
+        "avatar": fetch_avatar(user["avatarUrl"]),
         "repos": user["repositories"]["totalCount"],
         "languages": languages,
         "days": days,
@@ -332,12 +345,224 @@ def about_svg(data):
 """
 
 
+def plural(count, word):
+    return f"{count} {word}" + ("" if count == 1 else "s")
+
+
+def about_common(data):
+    today = dt.date.today()
+    year_ago = today - dt.timedelta(days=365)
+    yearly = sum(count for date, count in data["days"].items() if date > year_ago)
+    langs = sorted(data["languages"].items(), key=lambda item: item[1][0], reverse=True)[:6]
+    if not langs:
+        langs = [("C", (1, "#555555"))]
+    return today, yearly, langs
+
+
+def about_neofetch_svg(data):
+    """Terminal 'neofetch' style card: ASCII computer on the left, live info on the right."""
+    today, yearly, langs = about_common(data)
+    years = today.year - int(data["since"])
+    art = [
+        " .------------------------.",
+        " |  .------------------.  |",
+        " |  | #include         |  |",
+        " |  |   <hafsa.h>      |  |",
+        " |  |                  |  |",
+        " |  | int main() {     |  |",
+        " |  |   code();        |  |",
+        " |  |   learn();       |  |",
+        " |  |   repeat();      |  |",
+        " |  | }                |  |",
+        " |  '------------------'  |",
+        " '------------------------'",
+        "      _|____________|_",
+        "     /________________\\",
+    ]
+    info = [
+        ("title", "hafsa@github"),
+        ("rule", "-" * 30),
+        ("Name", data["name"]),
+        ("Role", "Software Developer"),
+        ("Education", "COMSATS University"),
+        ("Languages", ", ".join(name for name, _ in langs)),
+        ("Repositories", str(data["repos"])),
+        ("Followers", str(data["followers"])),
+        ("Following", str(data["following"])),
+        ("Stars", str(data["stars"])),
+        ("Contributions", f"{yearly} (last 12 months)"),
+        ("Uptime", f"on GitHub since {data['since']}" + (f" ({years} yrs)" if years > 0 else "")),
+        ("Editor", "VS Code"),
+        ("blank", ""),
+        ("colors", ""),
+    ]
+    width, top, step = 860, 90, 21
+    rows = max(len(art), len(info))
+    height = top + rows * step + 50
+    body = f"""  <rect x="0.5" y="0.5" rx="8" width="{width - 1}" height="{height - 1}" fill="#0f0f17" stroke="{GRID}"/>
+  <rect x="0.5" y="0.5" rx="8" width="{width - 1}" height="36" fill="#16161e"/>
+  <rect x="0.5" y="28" width="{width - 1}" height="9" fill="#16161e"/>
+  <circle cx="22" cy="18" r="6" fill="#ff5f56"/><circle cx="42" cy="18" r="6" fill="#ffbd2e"/><circle cx="62" cy="18" r="6" fill="#27c93f"/>
+  <text x="{width / 2}" y="23" text-anchor="middle" class="tab">hafsa@github: ~</text>
+  <text x="20" y="65" class="mono"><tspan fill="#9ece6a">hafsa@github</tspan><tspan fill="{TEXT}">:</tspan><tspan fill="#7dcfff">~</tspan><tspan fill="{TEXT}">$ neofetch</tspan></text>
+"""
+    for i, line in enumerate(art):
+        body += f'  <text x="20" y="{top + i * step}" class="mono" fill="{ACCENT}" xml:space="preserve">{escape(line)}</text>\n'
+    x = 340
+    for i, (key, value) in enumerate(info):
+        y = top + i * step
+        if key == "title":
+            body += f'  <text x="{x}" y="{y}" class="mono bold" fill="{ACCENT}">{escape(value)}</text>\n'
+        elif key == "rule":
+            body += f'  <text x="{x}" y="{y}" class="mono" fill="{GRID}">{value}</text>\n'
+        elif key == "colors":
+            for j, color in enumerate(["#f7768e", "#ff9e64", "#e0af68", "#9ece6a", "#7dcfff", "#7aa2f7", ACCENT, TEXT]):
+                body += f'  <rect x="{x + j * 28}" y="{y - 15}" width="28" height="18" fill="{color}"/>\n'
+        elif key != "blank":
+            body += (f'  <text x="{x}" y="{y}" class="mono" xml:space="preserve"><tspan fill="{ACCENT}" class="bold">{key}</tspan>'
+                     f'<tspan fill="{TEXT}">: {escape(value)}</tspan></text>\n')
+    last = top + rows * step + 12
+    body += f'  <text x="20" y="{last}" class="mono"><tspan fill="#9ece6a">hafsa@github</tspan><tspan fill="{TEXT}">:</tspan><tspan fill="#7dcfff">~</tspan><tspan fill="{TEXT}">$</tspan></text>\n'
+    body += (f'  <rect x="157" y="{last - 14}" width="9" height="17" fill="{ACCENT}">'
+             '<animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/></rect>\n')
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}">
+  <style>
+    .mono {{ font: 400 15px 'Fira Code', Consolas, 'Courier New', monospace; }}
+    .bold {{ font-weight: 700; }}
+    .tab {{ font: 400 13px {FONT}; fill: {MUTED}; }}
+  </style>
+{body}</svg>
+"""
+
+
+def about_card_svg(data):
+    """Modern profile card: avatar, name, stat tiles and language pills."""
+    today, yearly, langs = about_common(data)
+    width, height = 860, 330
+    body = f"""  <defs>
+    <linearGradient id="hdr" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#6A1B9A"/><stop offset="1" stop-color="{ACCENT}"/>
+    </linearGradient>
+    <clipPath id="avatar"><circle cx="140" cy="130" r="70"/></clipPath>
+  </defs>
+  <rect x="0.5" y="0.5" rx="14" width="{width - 1}" height="{height - 1}" fill="{BG}" stroke="{GRID}"/>
+  <rect x="0.5" y="0.5" rx="14" width="{width - 1}" height="90" fill="url(#hdr)"/>
+  <rect x="0.5" y="70" width="{width - 1}" height="21" fill="url(#hdr)"/>
+  <circle cx="140" cy="130" r="76" fill="{BG}"/>
+  <circle cx="140" cy="130" r="73" fill="none" stroke="{ACCENT}" stroke-width="3"/>
+"""
+    if data.get("avatar"):
+        body += f'  <image href="{data["avatar"]}" x="70" y="60" width="140" height="140" clip-path="url(#avatar)" preserveAspectRatio="xMidYMid slice"/>\n'
+    else:
+        body += f'  <text x="140" y="148" text-anchor="middle" class="initials">HK</text>\n'
+    body += f"""  <text x="140" y="240" text-anchor="middle" class="name">{escape(data['name'])}</text>
+  <text x="140" y="264" text-anchor="middle" class="role">Software Developer</text>
+  <text x="140" y="290" text-anchor="middle" class="sub">🎓 COMSATS University</text>
+  <text x="140" y="312" text-anchor="middle" class="sub">📅 On GitHub since {data['since']}</text>
+  <line x1="280" y1="115" x2="280" y2="305" stroke="{GRID}"/>
+"""
+    tiles = [("👥", data["followers"], "Followers"), ("🤝", data["following"], "Following"),
+             ("📦", data["repos"], "Repositories"), ("⭐", data["stars"], "Stars"), ("🔥", yearly, "Contributions")]
+    tw, gap, tx = 100, 12, 305
+    for i, (icon, value, label) in enumerate(tiles):
+        x = tx + i * (tw + gap)
+        body += f"""  <rect x="{x}" y="112" width="{tw}" height="92" rx="10" fill="#222436" stroke="{GRID}"/>
+  <text x="{x + tw / 2}" y="138" text-anchor="middle" class="icon">{icon}</text>
+  <text x="{x + tw / 2}" y="170" text-anchor="middle" class="num">{value}</text>
+  <text x="{x + tw / 2}" y="192" text-anchor="middle" class="lbl">{label}</text>
+"""
+    body += f'  <text x="{tx}" y="238" class="section">LANGUAGES</text>\n'
+    px = tx
+    for name, (_, color) in langs:
+        w = 30 + 9 * len(name)
+        body += (f'  <rect x="{px}" y="250" width="{w}" height="28" rx="14" fill="#222436" stroke="{color}"/>\n'
+                 f'  <circle cx="{px + 15}" cy="264" r="5" fill="{color}"/>\n'
+                 f'  <text x="{px + 25}" y="269" class="pill">{escape(name)}</text>\n')
+        px += w + 10
+    body += f'  <text x="{width - 20}" y="{height - 14}" text-anchor="end" class="upd">Updated {today:%d %b %Y}</text>\n'
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}">
+  <style>
+    .name {{ font: 700 22px {FONT}; fill: #ffffff; }}
+    .role {{ font: 600 15px {FONT}; fill: {ACCENT}; }}
+    .sub {{ font: 400 13px {FONT}; fill: {MUTED}; }}
+    .initials {{ font: 700 48px {FONT}; fill: {ACCENT}; }}
+    .icon {{ font: 400 18px {FONT}; }}
+    .num {{ font: 700 26px {FONT}; fill: #ffffff; }}
+    .lbl {{ font: 400 12px {FONT}; fill: {MUTED}; }}
+    .section {{ font: 700 12px {FONT}; fill: {ACCENT}; letter-spacing: 2px; }}
+    .pill {{ font: 600 13px {FONT}; fill: {TEXT}; }}
+    .upd {{ font: 400 11px {FONT}; fill: #3b4261; }}
+  </style>
+{body}</svg>
+"""
+
+
+def about_terminal_svg(data):
+    """Animated terminal: commands type themselves out one after another."""
+    today, yearly, langs = about_common(data)
+    langs_text = "  ".join(name for name, _ in langs)
+    session = [
+        ("whoami", [f"{data['name']}  -  Software Developer"]),
+        ("cat education.txt", ["🎓 COMSATS University graduate"]),
+        ("ls skills/", [f"{langs_text}  Git  GitHub  VS Code"]),
+        ("github --stats", [f"👥 {plural(data['followers'], 'follower')}   🤝 {data['following']} following   📦 {plural(data['repos'], 'repo')}",
+                            f"⭐ {plural(data['stars'], 'star')}   🔥 {plural(yearly, 'contribution')} in the last 12 months"]),
+        ('echo "$MOTTO"', ["Keep learning, keep building 🚀"]),
+    ]
+    width, top, step = 860, 70, 24
+    lines = sum(1 + len(out) for _, out in session) + 1
+    height = top + lines * step + 10
+    body = f"""  <rect x="0.5" y="0.5" rx="8" width="{width - 1}" height="{height - 1}" fill="#0f0f17" stroke="{GRID}"/>
+  <rect x="0.5" y="0.5" rx="8" width="{width - 1}" height="36" fill="#16161e"/>
+  <rect x="0.5" y="28" width="{width - 1}" height="9" fill="#16161e"/>
+  <circle cx="22" cy="18" r="6" fill="#ff5f56"/><circle cx="42" cy="18" r="6" fill="#ffbd2e"/><circle cx="62" cy="18" r="6" fill="#27c93f"/>
+  <text x="{width / 2}" y="23" text-anchor="middle" class="tab">hafsa@github: ~ (bash)</text>
+"""
+    prompt = (f'<tspan fill="#9ece6a">hafsa@github</tspan><tspan fill="{TEXT}">:</tspan>'
+              f'<tspan fill="#7dcfff">~</tspan><tspan fill="{TEXT}">$ </tspan>')
+    prompt_w = 150  # width of "hafsa@github:~$ " in 15px monospace
+    t, row = 0.3, 0
+    for n, (command, output) in enumerate(session):
+        y = top + row * step
+        type_time = 0.06 * len(command) + 0.2
+        cmd_w = 9.1 * len(command) + 4
+        body += f'  <clipPath id="c{n}"><rect x="{20 + prompt_w}" y="{y - 18}" width="0" height="24">' \
+                f'<animate attributeName="width" from="0" to="{cmd_w:.0f}" begin="{t:.2f}s" dur="{type_time:.2f}s" fill="freeze"/></rect></clipPath>\n'
+        body += f'  <g opacity="0"><set attributeName="opacity" to="1" begin="{t - 0.25:.2f}s" fill="freeze"/>' \
+                f'<text x="20" y="{y}" class="mono" xml:space="preserve">{prompt}</text></g>\n'
+        body += f'  <text x="{20 + prompt_w}" y="{y}" class="mono" fill="{TEXT}" clip-path="url(#c{n})">{escape(command)}</text>\n'
+        t += type_time + 0.3
+        row += 1
+        for line in output:
+            y = top + row * step
+            body += f'  <text x="20" y="{y}" class="mono out" opacity="0" xml:space="preserve">{escape(line)}' \
+                    f'<set attributeName="opacity" to="1" begin="{t:.2f}s" fill="freeze"/></text>\n'
+            row += 1
+        t += 0.6
+    y = top + row * step
+    body += f'  <g opacity="0"><set attributeName="opacity" to="1" begin="{t:.2f}s" fill="freeze"/>' \
+            f'<text x="20" y="{y}" class="mono" xml:space="preserve">{prompt}</text>' \
+            f'<rect x="{20 + prompt_w}" y="{y - 14}" width="9" height="17" fill="{ACCENT}">' \
+            f'<animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/></rect></g>\n'
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}">
+  <style>
+    .mono {{ font: 400 15px 'Fira Code', Consolas, 'Courier New', monospace; }}
+    .out {{ fill: {ACCENT}; }}
+    .tab {{ font: 400 13px {FONT}; fill: {MUTED}; }}
+  </style>
+{body}</svg>
+"""
+
+
 def main():
     login, out_dir = sys.argv[1], sys.argv[2]
     data = fetch_data(login)
     os.makedirs(out_dir, exist_ok=True)
     files = {
         "about.svg": about_svg(data),
+        "about-neofetch.svg": about_neofetch_svg(data),
+        "about-card.svg": about_card_svg(data),
+        "about-terminal.svg": about_terminal_svg(data),
         "stats.svg": stats_svg(data),
         "top-langs.svg": top_langs_svg(data),
         "streak.svg": streak_svg(data),
