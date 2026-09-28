@@ -470,9 +470,9 @@ def about_card_svg(data):
   <text x="140" y="312" text-anchor="middle" class="sub">📅 On GitHub since {data['since']}</text>
   <line x1="280" y1="115" x2="280" y2="305" stroke="{CARD_LINE}"/>
 """
-    tiles = [("👥", data["followers"], "Followers"), ("🤝", data["following"], "Following"),
-             ("📦", data["repos"], "Repositories"), ("⭐", data["stars"], "Stars"), ("🔥", yearly, "Contributions")]
-    tw, gap, tx = 100, 12, 305
+    tiles = [("👥", data["followers"], "Followers"), ("📦", data["repos"], "Repositories"),
+             ("⭐", data["stars"], "Stars"), ("🔥", yearly, "Contributions")]
+    tw, gap, tx = 127, 12, 305
     for i, (icon, value, label) in enumerate(tiles):
         x = tx + i * (tw + gap)
         body += f"""  <rect x="{x}" y="112" width="{tw}" height="92" rx="10" fill="{CARD_TILE}" stroke="{CARD_LINE}"/>

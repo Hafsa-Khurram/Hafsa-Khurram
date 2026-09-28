@@ -119,14 +119,6 @@
 
 ---
 
-<h2 align="center">👀 Profile Views</h2>
-
-<div align="center">
-  <img src="https://komarev.com/ghpvc/?username=Hafsa-Khurram&color=C471ED&style=for-the-badge&label=%F0%9F%91%80%20PROFILE%20VIEWS" alt="Profile views" height="40"/>
-</div>
-
----
-
 ## 📫 Let's Connect!
 
 <div align="center">
