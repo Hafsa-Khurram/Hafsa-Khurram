@@ -86,6 +86,57 @@ query($login: String!, $from: DateTime!, $to: DateTime!) {
 """
 
 
+HISTORY_QUERY = """
+query($owner: String!, $name: String!, $cursor: String) {
+  repository(owner: $owner, name: $name) {
+    defaultBranchRef {
+      target {
+        ... on Commit {
+          history(first: 100, after: $cursor) {
+            pageInfo { hasNextPage endCursor }
+            nodes { committedDate author { email user { login } } }
+          }
+        }
+      }
+    }
+  }
+}
+"""
+
+
+def extra_commits(login, repo_names):
+    """Commits in the user's own repositories that GitHub does not count for the user.
+
+    GitHub only counts a commit as a contribution when its author email belongs to the
+    account. Commits made in these repositories with another email (for example by an
+    editor or assistant) are real work on the user's projects, so they are added here.
+    Bot commits (the automatic card and README updates) are left out.
+    Returns {date: count}.
+    """
+    days = {}
+    for name in repo_names:
+        cursor = None
+        while True:
+            repo = graphql(HISTORY_QUERY, {"owner": login, "name": name, "cursor": cursor})["repository"]
+            target = ((repo or {}).get("defaultBranchRef") or {}).get("target")
+            if not target:
+                break
+            history = target["history"]
+            for commit in history["nodes"]:
+                author = commit.get("author") or {}
+                user = (author.get("user") or {}).get("login", "")
+                if user.lower() == login.lower():
+                    continue  # already counted by GitHub
+                if "[bot]" in user or "[bot]" in (author.get("email") or ""):
+                    continue
+                date = dt.datetime.fromisoformat(commit["committedDate"].replace("Z", "+00:00")).date()
+                days[date] = days.get(date, 0) + 1
+            if not history["pageInfo"]["hasNextPage"]:
+                break
+            cursor = history["pageInfo"]["endCursor"]
+    return days
+
+
 def fetch_avatar(url):
     """Avatar as a data URI: GitHub does not load external images inside SVGs."""
     try:
@@ -115,6 +166,12 @@ def fetch_data(login):
                 date = dt.date.fromisoformat(day["date"])
                 if date <= today:
                     days[date] = day["contributionCount"]
+
+    repo_names = [repo["name"] for repo in user["repositories"]["nodes"]]
+    for date, count in extra_commits(login, repo_names).items():
+        total_commits += count
+        if date <= today:
+            days[date] = days.get(date, 0) + count
 
     languages = {}
     stars = 0
