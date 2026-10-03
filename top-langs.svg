@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="145" viewBox="0 0 400 145">
+  <style>
+    .title { font: 600 18px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif; fill: #C471ED; }
+    .label { font: 400 14px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif; fill: #c0caf5; }
+    .value { font: 700 14px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif; fill: #c0caf5; }
+    .small { font: 400 11px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif; fill: #7a88cf; }
+    .big { font: 700 28px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif; fill: #c0caf5; }
+  </style>
+  <rect x="0.5" y="0.5" rx="6" width="399" height="144" fill="#1a1b27" stroke="#2a2e45"/>
+  <text x="25" y="35" class="title">Most Used Languages</text>
+  <clipPath id="bar"><rect x="25" y="55" width="350" height="10" rx="5"/></clipPath>
+  <g clip-path="url(#bar)">
+    <rect x="25.00" y="55" width="279.15" height="10" fill="#b07219"/>
+    <rect x="303.65" y="55" width="60.92" height="10" fill="#7355dd"/>
+    <rect x="364.07" y="55" width="11.43" height="10" fill="#555555"/>
+  </g>
+  <circle cx="30" cy="91" r="5" fill="#b07219"/>
+  <text x="41" y="95" class="label">Java 79.6%</text>
+  <circle cx="210" cy="91" r="5" fill="#7355dd"/>
+  <text x="221" y="95" class="label">C# 17.3%</text>
+  <circle cx="30" cy="116" r="5" fill="#555555"/>
+  <text x="41" y="120" class="label">C 3.1%</text>
+
+</svg>

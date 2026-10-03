@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="250" viewBox="0 0 400 250">
+  <style>
+    .title { font: 600 18px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif; fill: #C471ED; }
+    .label { font: 400 14px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif; fill: #c0caf5; }
+    .value { font: 700 14px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif; fill: #c0caf5; }
+    .small { font: 400 11px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif; fill: #7a88cf; }
+    .big { font: 700 28px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif; fill: #c0caf5; }
+  </style>
+  <rect x="0.5" y="0.5" rx="6" width="399" height="249" fill="#1a1b27" stroke="#2a2e45"/>
+  <text x="25" y="35" class="title">Hafsa Khurram&#x27;s GitHub Stats</text>
+  <text x="25" y="70" class="label">⭐  Total Stars:</text>
+  <text x="250" y="70" class="value">1</text>
+  <text x="25" y="95" class="label">📝  Total Commits:</text>
+  <text x="250" y="95" class="value">27</text>
+  <text x="25" y="120" class="label">🔀  Total PRs:</text>
+  <text x="250" y="120" class="value">0</text>
+  <text x="25" y="145" class="label">❗  Total Issues:</text>
+  <text x="250" y="145" class="value">0</text>
+  <text x="25" y="170" class="label">📦  Public Repos:</text>
+  <text x="250" y="170" class="value">6</text>
+  <text x="25" y="195" class="label">🤝  Contributed to:</text>
+  <text x="250" y="195" class="value">0</text>
+  <text x="25" y="220" class="label">👥  Followers:</text>
+  <text x="250" y="220" class="value">17</text>
+
+</svg>
