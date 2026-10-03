@@ -147,6 +147,10 @@ def fetch_avatar(url):
         return ""
 
 
+# Database scripts, not programming languages: left out of the language cards.
+IGNORED_LANGUAGES = {"TSQL", "SQL", "PLSQL", "PLpgSQL"}
+
+
 def fetch_data(login):
     user = graphql(USER_QUERY, {"login": login})["user"]
     today = dt.date.today()
@@ -181,6 +185,8 @@ def fetch_data(login):
             continue  # skip the profile README repo: its helper script is not real project code
         for edge in repo["languages"]["edges"]:
             name = edge["node"]["name"]
+            if name in IGNORED_LANGUAGES:
+                continue
             color = edge["node"]["color"] or "#858585"
             size, _ = languages.get(name, (0, color))
             languages[name] = (size + edge["size"], color)
