@@ -68,7 +68,7 @@
 
 | Project | Language | Latest change | Date |
 |:--|:--:|:--|:--:|
-| 📁 **[Visual-Programming](https://github.com/Hafsa-Khurram/Visual-Programming)** | <img src="https://skillicons.dev/icons?i=cs" width="24" title="C#"/> | [Do not count the SQL script as a language](https://github.com/Hafsa-Khurram/Visual-Programming/commit/1279759f401da2ed25f23bb074469c0dcb27ecb8) | 03 Oct 2026 |
+| 📁 **[Visual-Programming](https://github.com/Hafsa-Khurram/Visual-Programming)** | <img src="https://skillicons.dev/icons?i=cs" width="24" title="C#"/> | [Show the new look in the README screenshots](https://github.com/Hafsa-Khurram/Visual-Programming/commit/c4bcf249e264b7694c9e944782d7ea6e02312997) | 03 Oct 2026 |
 | 📁 **[Database-System-MySQL](https://github.com/Hafsa-Khurram/Database-System-MySQL)** | <img src="https://skillicons.dev/icons?i=java" width="24" title="Java"/> | [Add Travel Agency Management System (Java Swing + MySQL)](https://github.com/Hafsa-Khurram/Database-System-MySQL/commit/8cbb9953253e64d159a88474579246a85342b9c9) | 02 Oct 2026 |
 | 📁 **[Object-Oriented-Programming](https://github.com/Hafsa-Khurram/Object-Oriented-Programming)** | <img src="https://skillicons.dev/icons?i=java" width="24" title="Java"/> | [Fix empty Route Details in Reports](https://github.com/Hafsa-Khurram/Object-Oriented-Programming/commit/5db140589b604184a5cac88ee646da9591ad2421) | 27 Sep 2026 |
 | 📁 **[Programming-Fundamental](https://github.com/Hafsa-Khurram/Programming-Fundamental)** | <img src="https://skillicons.dev/icons?i=c" width="24" title="C"/> | [Ignore zip archives](https://github.com/Hafsa-Khurram/Programming-Fundamental/commit/1698e8c724b82b0dcd59d3d44c52b7f384bd3ada) | 27 Sep 2026 |
