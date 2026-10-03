@@ -5,7 +5,7 @@
 
 <h1><img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="30px"/> Hi there! I'm Hafsa Khurram</h1>
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=24&pause=1200&color=C471ED&center=true&vCenter=true&width=600&lines=Software+Developer;COMSATS+Graduate;C+%26+Java+Programmer;MySQL+%26+Database+Design;OOP+%26+Desktop+Apps;Always+Learning+%26+Building" alt="Typing SVG" />
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=24&pause=1200&color=C471ED&center=true&vCenter=true&width=600&lines=Software+Developer;COMSATS+Graduate;C%2C+C%23+%26+Java+Programmer;Windows+Forms+%26+.NET+Desktop+Apps;MySQL+%26+SQL+Server;OOP+%26+Desktop+Apps;Always+Learning+%26+Building" alt="Typing SVG" />
 
 <p>
   <a href="https://github.com/Hafsa-Khurram?tab=followers"><img src="https://img.shields.io/github/followers/Hafsa-Khurram?label=Followers&style=for-the-badge&color=C471ED&labelColor=1a1b27" alt="Followers"/></a>
@@ -33,13 +33,13 @@
 
 <table>
   <tr>
-    <td align="center" width="33%"><b>💻 Languages</b><br/><br/><img src="https://skillicons.dev/icons?i=c,java" /></td>
-    <td align="center" width="33%"><b>🗄️ Database</b><br/><br/><img src="https://skillicons.dev/icons?i=mysql" /></td>
-    <td align="center" width="33%"><b>🔧 Tools</b><br/><br/><img src="https://skillicons.dev/icons?i=git,github,vscode" /></td>
+    <td align="center" width="33%"><b>💻 Languages</b><br/><br/><img src="https://skillicons.dev/icons?i=c,cs,java" /></td>
+    <td align="center" width="33%"><b>🗄️ Databases</b><br/><br/><img src="https://skillicons.dev/icons?i=mysql" /> <img src="https://img.shields.io/badge/SQL%20Server-CC2927?style=for-the-badge&logo=microsoftsqlserver&logoColor=white" height="48" alt="SQL Server"/></td>
+    <td align="center" width="33%"><b>🔧 Tools</b><br/><br/><img src="https://skillicons.dev/icons?i=dotnet,visualstudio,vscode,git,github" /></td>
   </tr>
 </table>
 
-<sub>Java Swing · JDBC · SQL (joins, views, triggers, stored functions, transactions) · OOP · File handling</sub>
+<sub>Java Swing · JDBC · C# Windows Forms · LINQ to SQL · SQL (joins, views, triggers, stored functions, transactions) · OOP · File handling</sub>
 
 </div>
 
@@ -53,6 +53,7 @@
 |:--|:--|:--:|
 | 🏦 **[Banking System](https://github.com/Hafsa-Khurram/Programming-Fundamental)** | Console banking app: PIN-protected ATM (balance, withdraw, deposit, fast cash) and customer records with full CRUD and file storage | <img src="https://skillicons.dev/icons?i=c" width="30"/> |
 | 🌍 **[Travel Agency Management System](https://github.com/Hafsa-Khurram/Database-System-MySQL)** | Java Swing + MySQL app: customers book tour packages, bus tickets and hotels; admins approve bookings, manage the catalogue and see live reports. Normalized schema with triggers, views, a stored function and safe transactions (no overbooking) | <img src="https://skillicons.dev/icons?i=java,mysql" width="60"/> |
+| ✈️ **[Travel Manager](https://github.com/Hafsa-Khurram/Visual-Programming)** | C# Windows Forms + SQL Server app: sign up / log in, manage travel packages, bookings and payments, with view, edit and delete screens. Uses LINQ to SQL, input validation and automatic database setup | <img src="https://skillicons.dev/icons?i=cs,dotnet" width="60"/> |
 | 🚌 **[Bus Reservation System](https://github.com/Hafsa-Khurram/Object-Oriented-Programming)** | Java Swing app: admin login, clickable seat map with Business & Economy seats, payments and printable tickets, route & fare management, sortable bookings and route-wise earnings reports | <img src="https://skillicons.dev/icons?i=java" width="30"/> |
 
 </div>
@@ -110,11 +111,23 @@
   <tr>
     <td width="55%" valign="center">
 
-- 🛠️ **Building:** Java desktop apps backed by MySQL, like my Travel Agency System
-- 🗄️ **Practising:** Database design: normalization, joins, views, triggers and transactions
-- 🧩 **Improving:** Object-oriented design, clean code and data validation
-- 📚 **Learning:** New tools and languages every day
-- ⚡ **Fun fact:** I enjoy turning ideas into working programs
+```csharp
+public class HafsaKhurram
+{
+    public string Building  = "Desktop apps with C#, Java & SQL";
+    public string Practising = "Database design: joins, views, triggers";
+    public string Improving = "OOP, clean code & data validation";
+    public string Learning  = "New tools & frameworks every day";
+
+    public string[] Stack => new[] {
+        "C", "C#", "Java", "WinForms", "Swing",
+        "MySQL", "SQL Server"
+    };
+
+    public string FunFact =>
+        "I enjoy turning ideas into working programs";
+}
+```
 
 </td>
     <td width="45%" valign="center">
