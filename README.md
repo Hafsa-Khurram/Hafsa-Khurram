@@ -5,7 +5,7 @@
 
 <h1><img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="30px"/> Hi there! I'm Hafsa Khurram</h1>
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=24&pause=1200&color=C471ED&center=true&vCenter=true&width=600&lines=Software+Developer;COMSATS+Graduate;C%2C+C%23+%26+Java+Programmer;Windows+Forms+%26+.NET+Desktop+Apps;MySQL+%26+SQL+Server;OOP+%26+Desktop+Apps;Always+Learning+%26+Building" alt="Typing SVG" />
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=24&pause=1200&color=C471ED&center=true&vCenter=true&width=600&lines=Software+Developer;COMSATS+Graduate;MERN+Stack+Web+Developer;React+%2B+Node.js+%2B+MongoDB;C%2C+C%23+%26+Java+Programmer;Windows+Forms+%26+.NET+Desktop+Apps;MySQL+%26+SQL+Server;Always+Learning+%26+Building" alt="Typing SVG" />
 
 <p>
   <a href="https://github.com/Hafsa-Khurram?tab=followers"><img src="https://img.shields.io/github/followers/Hafsa-Khurram?label=Followers&style=for-the-badge&color=C471ED&labelColor=1a1b27" alt="Followers"/></a>
@@ -33,13 +33,16 @@
 
 <table>
   <tr>
-    <td align="center" width="33%"><b>💻 Languages</b><br/><br/><img src="https://skillicons.dev/icons?i=c,cs,java" /></td>
-    <td align="center" width="33%"><b>🗄️ Databases</b><br/><br/><img src="https://skillicons.dev/icons?i=mysql" /> <img src="https://img.shields.io/badge/SQL%20Server-CC2927?style=for-the-badge&logo=microsoftsqlserver&logoColor=white" height="48" alt="SQL Server"/></td>
-    <td align="center" width="33%"><b>🔧 Tools</b><br/><br/><img src="https://skillicons.dev/icons?i=dotnet,visualstudio,vscode,git,github" /></td>
+    <td align="center" width="50%"><b>💻 Languages</b><br/><br/><img src="https://skillicons.dev/icons?i=c,cs,java,js" /></td>
+    <td align="center" width="50%"><b>🌐 Web (MERN)</b><br/><br/><img src="https://skillicons.dev/icons?i=html,css,react,nodejs,express,vite" /></td>
+  </tr>
+  <tr>
+    <td align="center" width="50%"><b>🗄️ Databases</b><br/><br/><img src="https://skillicons.dev/icons?i=mongodb,mysql" /> <img src="https://img.shields.io/badge/SQL%20Server-CC2927?style=for-the-badge&logo=microsoftsqlserver&logoColor=white" height="48" alt="SQL Server"/></td>
+    <td align="center" width="50%"><b>🔧 Tools</b><br/><br/><img src="https://skillicons.dev/icons?i=dotnet,visualstudio,vscode,git,github" /></td>
   </tr>
 </table>
 
-<sub>Java Swing · JDBC · C# Windows Forms · LINQ to SQL · SQL (joins, views, triggers, stored functions, transactions) · OOP · File handling</sub>
+<sub>React · React Router · Node.js · Express · MongoDB & Mongoose · REST APIs · JWT authentication · Java Swing · JDBC · C# Windows Forms · LINQ to SQL · SQL (joins, views, triggers, stored functions, transactions) · OOP · File handling</sub>
 
 </div>
 
@@ -51,6 +54,7 @@
 
 | Project | Description | Tech |
 |:--|:--|:--:|
+| 🧳 **[GoTravel: Travel Agency Management System](https://github.com/Hafsa-Khurram/Web-Technology)** | MERN web app with three portals: customers search and book tour packages with promo codes, track bookings and download invoices; agents manage packages, bookings, payments and discounts; admins manage users and see a revenue analytics dashboard. JWT login with roles, ratings and reviews, booking notifications and a mobile-friendly design | <img src="https://skillicons.dev/icons?i=react,nodejs,express,mongodb" width="120"/> |
 | 🏦 **[Banking System](https://github.com/Hafsa-Khurram/Programming-Fundamental)** | Console banking app: PIN-protected ATM (balance, withdraw, deposit, fast cash) and customer records with full CRUD and file storage | <img src="https://skillicons.dev/icons?i=c" width="30"/> |
 | 🌍 **[Travel Agency Management System](https://github.com/Hafsa-Khurram/Database-System-MySQL)** | Java Swing + MySQL app: customers book tour packages, bus tickets and hotels; admins approve bookings, manage the catalogue and see live reports. Normalized schema with triggers, views, a stored function and safe transactions (no overbooking) | <img src="https://skillicons.dev/icons?i=java,mysql" width="60"/> |
 | ✈️ **[Travel Manager](https://github.com/Hafsa-Khurram/Visual-Programming)** | C# Windows Forms + SQL Server app: sign up / log in, manage travel packages, bookings and payments, with view, edit and delete screens. Uses LINQ to SQL, input validation and automatic database setup | <img src="https://skillicons.dev/icons?i=cs,dotnet" width="60"/> |
@@ -116,12 +120,13 @@
 ```csharp
 public class HafsaKhurram
 {
-    public string Building  = "Desktop apps with C#, Java & SQL";
-    public string Practising = "Database design: joins, views, triggers";
+    public string Building  = "MERN web apps & desktop apps in C# and Java";
+    public string Practising = "REST APIs, MongoDB & SQL database design";
     public string Improving = "OOP, clean code & data validation";
     public string Learning  = "New tools & frameworks every day";
 
     public string[] Stack => new[] {
+        "React", "Node.js", "Express", "MongoDB",
         "C", "C#", "Java", "WinForms", "Swing",
         "MySQL", "SQL Server"
     };
