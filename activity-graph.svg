@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="300" viewBox="0 0 900 300">
+  <style>
+    .title { font: 600 18px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif; fill: #C471ED; }
+    .label { font: 400 14px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif; fill: #c0caf5; }
+    .value { font: 700 14px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif; fill: #c0caf5; }
+    .small { font: 400 11px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif; fill: #7a88cf; }
+    .big { font: 700 28px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif; fill: #c0caf5; }
+  </style>
+  <rect x="0.5" y="0.5" rx="6" width="899" height="299" fill="#1a1b27" stroke="#2a2e45"/>
+  <text x="25" y="35" class="title">Hafsa Khurram&#x27;s Contribution Graph (last 31 days)</text>
+  <line x1="50" y1="250.0" x2="880" y2="250.0" stroke="#2a2e45"/>
+  <text x="40" y="254.0" class="small" text-anchor="end">0</text>
+  <line x1="50" y1="202.5" x2="880" y2="202.5" stroke="#2a2e45"/>
+  <text x="40" y="206.5" class="small" text-anchor="end">6</text>
+  <line x1="50" y1="155.0" x2="880" y2="155.0" stroke="#2a2e45"/>
+  <text x="40" y="159.0" class="small" text-anchor="end">12</text>
+  <line x1="50" y1="107.5" x2="880" y2="107.5" stroke="#2a2e45"/>
+  <text x="40" y="111.5" class="small" text-anchor="end">18</text>
+  <line x1="50" y1="60.0" x2="880" y2="60.0" stroke="#2a2e45"/>
+  <text x="40" y="64.0" class="small" text-anchor="end">24</text>
+  <polygon points="50,250 50.0,250.0 77.7,250.0 105.3,250.0 133.0,250.0 160.7,250.0 188.3,250.0 216.0,250.0 243.7,250.0 271.3,250.0 299.0,250.0 326.7,250.0 354.3,250.0 382.0,250.0 409.7,250.0 437.3,250.0 465.0,250.0 492.7,83.8 520.3,234.2 548.0,250.0 575.7,250.0 603.3,250.0 631.0,234.2 658.7,186.7 686.3,250.0 714.0,250.0 741.7,250.0 769.3,250.0 797.0,242.1 824.7,226.2 852.3,250.0 880.0,250.0 880,250" fill="#C471ED" fill-opacity="0.15"/>
+  <polyline points="50.0,250.0 77.7,250.0 105.3,250.0 133.0,250.0 160.7,250.0 188.3,250.0 216.0,250.0 243.7,250.0 271.3,250.0 299.0,250.0 326.7,250.0 354.3,250.0 382.0,250.0 409.7,250.0 437.3,250.0 465.0,250.0 492.7,83.8 520.3,234.2 548.0,250.0 575.7,250.0 603.3,250.0 631.0,234.2 658.7,186.7 686.3,250.0 714.0,250.0 741.7,250.0 769.3,250.0 797.0,242.1 824.7,226.2 852.3,250.0 880.0,250.0" fill="none" stroke="#C471ED" stroke-width="2.5" stroke-linejoin="round"/>
+  <circle cx="50.0" cy="250.0" r="3.5" fill="#ffffff"><title>Sep 11: 0</title></circle>
+  <text x="50.0" y="270" class="small" text-anchor="middle">11 Sep</text>
+  <circle cx="77.7" cy="250.0" r="3.5" fill="#ffffff"><title>Sep 12: 0</title></circle>
+  <circle cx="105.3" cy="250.0" r="3.5" fill="#ffffff"><title>Sep 13: 0</title></circle>
+  <circle cx="133.0" cy="250.0" r="3.5" fill="#ffffff"><title>Sep 14: 0</title></circle>
+  <circle cx="160.7" cy="250.0" r="3.5" fill="#ffffff"><title>Sep 15: 0</title></circle>
+  <circle cx="188.3" cy="250.0" r="3.5" fill="#ffffff"><title>Sep 16: 0</title></circle>
+  <text x="188.3" y="270" class="small" text-anchor="middle">16 Sep</text>
+  <circle cx="216.0" cy="250.0" r="3.5" fill="#ffffff"><title>Sep 17: 0</title></circle>
+  <circle cx="243.7" cy="250.0" r="3.5" fill="#ffffff"><title>Sep 18: 0</title></circle>
+  <circle cx="271.3" cy="250.0" r="3.5" fill="#ffffff"><title>Sep 19: 0</title></circle>
+  <circle cx="299.0" cy="250.0" r="3.5" fill="#ffffff"><title>Sep 20: 0</title></circle>
+  <circle cx="326.7" cy="250.0" r="3.5" fill="#ffffff"><title>Sep 21: 0</title></circle>
+  <text x="326.7" y="270" class="small" text-anchor="middle">21 Sep</text>
+  <circle cx="354.3" cy="250.0" r="3.5" fill="#ffffff"><title>Sep 22: 0</title></circle>
+  <circle cx="382.0" cy="250.0" r="3.5" fill="#ffffff"><title>Sep 23: 0</title></circle>
+  <circle cx="409.7" cy="250.0" r="3.5" fill="#ffffff"><title>Sep 24: 0</title></circle>
+  <circle cx="437.3" cy="250.0" r="3.5" fill="#ffffff"><title>Sep 25: 0</title></circle>
+  <circle cx="465.0" cy="250.0" r="3.5" fill="#ffffff"><title>Sep 26: 0</title></circle>
+  <text x="465.0" y="270" class="small" text-anchor="middle">26 Sep</text>
+  <circle cx="492.7" cy="83.8" r="3.5" fill="#ffffff"><title>Sep 27: 21</title></circle>
+  <circle cx="520.3" cy="234.2" r="3.5" fill="#ffffff"><title>Sep 28: 2</title></circle>
+  <circle cx="548.0" cy="250.0" r="3.5" fill="#ffffff"><title>Sep 29: 0</title></circle>
+  <circle cx="575.7" cy="250.0" r="3.5" fill="#ffffff"><title>Sep 30: 0</title></circle>
+  <circle cx="603.3" cy="250.0" r="3.5" fill="#ffffff"><title>Oct 01: 0</title></circle>
+  <text x="603.3" y="270" class="small" text-anchor="middle">01 Oct</text>
+  <circle cx="631.0" cy="234.2" r="3.5" fill="#ffffff"><title>Oct 02: 2</title></circle>
+  <circle cx="658.7" cy="186.7" r="3.5" fill="#ffffff"><title>Oct 03: 8</title></circle>
+  <circle cx="686.3" cy="250.0" r="3.5" fill="#ffffff"><title>Oct 04: 0</title></circle>
+  <circle cx="714.0" cy="250.0" r="3.5" fill="#ffffff"><title>Oct 05: 0</title></circle>
+  <circle cx="741.7" cy="250.0" r="3.5" fill="#ffffff"><title>Oct 06: 0</title></circle>
+  <text x="741.7" y="270" class="small" text-anchor="middle">06 Oct</text>
+  <circle cx="769.3" cy="250.0" r="3.5" fill="#ffffff"><title>Oct 07: 0</title></circle>
+  <circle cx="797.0" cy="242.1" r="3.5" fill="#ffffff"><title>Oct 08: 1</title></circle>
+  <circle cx="824.7" cy="226.2" r="3.5" fill="#ffffff"><title>Oct 09: 3</title></circle>
+  <circle cx="852.3" cy="250.0" r="3.5" fill="#ffffff"><title>Oct 10: 0</title></circle>
+  <circle cx="880.0" cy="250.0" r="3.5" fill="#ffffff"><title>Oct 11: 0</title></circle>
+  <text x="880.0" y="270" class="small" text-anchor="middle">11 Oct</text>
+  <text x="450.0" y="292" class="small" text-anchor="middle">Days</text>
+
+</svg>
