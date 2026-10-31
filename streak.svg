@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="180" viewBox="0 0 600 180">
+  <style>
+    .title { font: 600 18px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif; fill: #C471ED; }
+    .label { font: 400 14px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif; fill: #c0caf5; }
+    .value { font: 700 14px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif; fill: #c0caf5; }
+    .small { font: 400 11px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif; fill: #7a88cf; }
+    .big { font: 700 28px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif; fill: #c0caf5; }
+  </style>
+  <rect x="0.5" y="0.5" rx="6" width="599" height="179" fill="#1a1b27" stroke="#2a2e45"/>
+  <text x="25" y="35" class="title">Contribution Streak</text>
+  <text x="100" y="95" class="big" text-anchor="middle">38</text>
+  <text x="100" y="125" class="value" text-anchor="middle" style="fill:#C471ED">Total Contributions</text>
+  <text x="100" y="148" class="small" text-anchor="middle">Jan 01, 2024 - Present</text>
+  <text x="300" y="95" class="big" text-anchor="middle">0</text>
+  <text x="300" y="125" class="value" text-anchor="middle" style="fill:#C471ED">Current Streak</text>
+  <text x="300" y="148" class="small" text-anchor="middle">🔥 Keep it going!</text>
+  <text x="500" y="95" class="big" text-anchor="middle">2</text>
+  <text x="500" y="125" class="value" text-anchor="middle" style="fill:#C471ED">Longest Streak</text>
+  <text x="500" y="148" class="small" text-anchor="middle">Best run so far</text>
+  <line x1="200" y1="60" x2="200" y2="155" stroke="#2a2e45"/>
+  <line x1="400" y1="60" x2="400" y2="155" stroke="#2a2e45"/>
+
+</svg>
