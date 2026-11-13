@@ -72,11 +72,11 @@
 
 | Project | Language | Latest change | Date |
 |:--|:--:|:--|:--:|
+| 📁 **[Compiler-Construction](https://github.com/Hafsa-Khurram/Compiler-Construction)** | <img src="https://skillicons.dev/icons?i=py" width="24" title="Python"/> | [Add a README with screenshots, setup steps and a language guide](https://github.com/Hafsa-Khurram/Compiler-Construction/commit/0fc84be9dea70ea9fc6647f78826498a70d4dcec) | 13 Nov 2026 |
 | 📁 **[Web-Technology](https://github.com/Hafsa-Khurram/Web-Technology)** | <img src="https://skillicons.dev/icons?i=js" width="24" title="JavaScript"/> | [Add recent updates and a Node 20 tip to the README](https://github.com/Hafsa-Khurram/Web-Technology/commit/b6199cc31c5638bf40f0f541dac5b0519fae7de1) | 13 Nov 2026 |
 | 📁 **[Visual-Programming](https://github.com/Hafsa-Khurram/Visual-Programming)** | <img src="https://skillicons.dev/icons?i=cs" width="24" title="C#"/> | [Show the new look in the README screenshots](https://github.com/Hafsa-Khurram/Visual-Programming/commit/c4bcf249e264b7694c9e944782d7ea6e02312997) | 03 Oct 2026 |
 | 📁 **[Database-System-MySQL](https://github.com/Hafsa-Khurram/Database-System-MySQL)** | <img src="https://skillicons.dev/icons?i=java" width="24" title="Java"/> | [Add Travel Agency Management System (Java Swing + MySQL)](https://github.com/Hafsa-Khurram/Database-System-MySQL/commit/8cbb9953253e64d159a88474579246a85342b9c9) | 02 Oct 2026 |
 | 📁 **[Object-Oriented-Programming](https://github.com/Hafsa-Khurram/Object-Oriented-Programming)** | <img src="https://skillicons.dev/icons?i=java" width="24" title="Java"/> | [Fix empty Route Details in Reports](https://github.com/Hafsa-Khurram/Object-Oriented-Programming/commit/5db140589b604184a5cac88ee646da9591ad2421) | 27 Sep 2026 |
-| 📁 **[Programming-Fundamental](https://github.com/Hafsa-Khurram/Programming-Fundamental)** | <img src="https://skillicons.dev/icons?i=c" width="24" title="C"/> | [Ignore zip archives](https://github.com/Hafsa-Khurram/Programming-Fundamental/commit/1698e8c724b82b0dcd59d3d44c52b7f384bd3ada) | 27 Sep 2026 |
 
 <!--LATEST-UPDATES:END-->
 
