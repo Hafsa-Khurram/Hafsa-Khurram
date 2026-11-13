@@ -5,7 +5,7 @@
 
 <h1><img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="30px"/> Hi there! I'm Hafsa Khurram</h1>
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=24&pause=1200&color=C471ED&center=true&vCenter=true&width=600&lines=Software+Developer;COMSATS+Graduate;MERN+Stack+Web+Developer;React+%2B+Node.js+%2B+MongoDB;C%2C+C%23+%26+Java+Programmer;Windows+Forms+%26+.NET+Desktop+Apps;MySQL+%26+SQL+Server;Always+Learning+%26+Building" alt="Typing SVG" />
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=24&pause=1200&color=C471ED&center=true&vCenter=true&width=600&lines=Software+Developer;COMSATS+Graduate;MERN+Stack+Web+Developer;React+%2B+Node.js+%2B+MongoDB;Compiler+Construction+with+JFlex+%26+CUP;C%2C+C%23+%26+Java+Programmer;Windows+Forms+%26+.NET+Desktop+Apps;MySQL+%26+SQL+Server;Always+Learning+%26+Building" alt="Typing SVG" />
 
 <p>
   <a href="https://github.com/Hafsa-Khurram?tab=followers"><img src="https://img.shields.io/github/followers/Hafsa-Khurram?label=Followers&style=for-the-badge&color=C471ED&labelColor=1a1b27" alt="Followers"/></a>
@@ -33,7 +33,7 @@
 
 <table>
   <tr>
-    <td align="center" width="50%"><b>💻 Languages</b><br/><br/><img src="https://skillicons.dev/icons?i=c,cs,java,js" /></td>
+    <td align="center" width="50%"><b>💻 Languages</b><br/><br/><img src="https://skillicons.dev/icons?i=c,cs,java,js,py" /></td>
     <td align="center" width="50%"><b>🌐 Web (MERN)</b><br/><br/><img src="https://skillicons.dev/icons?i=html,css,react,nodejs,express,vite" /></td>
   </tr>
   <tr>
@@ -42,7 +42,7 @@
   </tr>
 </table>
 
-<sub>React · React Router · Node.js · Express · MongoDB & Mongoose · REST APIs · JWT authentication · Java Swing · JDBC · C# Windows Forms · LINQ to SQL · SQL (joins, views, triggers, stored functions, transactions) · OOP · File handling</sub>
+<sub>React · React Router · Node.js · Express · MongoDB & Mongoose · REST APIs · JWT authentication · Java Swing · JDBC · C# Windows Forms · LINQ to SQL · SQL (joins, views, triggers, stored functions, transactions) · Compiler construction (JFlex, CUP, syntax trees, semantic analysis) · Python & CustomTkinter · OOP · File handling</sub>
 
 </div>
 
@@ -121,15 +121,15 @@
 ```csharp
 public class HafsaKhurram
 {
-    public string Building  = "MERN web apps & desktop apps in C# and Java";
+    public string Building  = "MERN web apps, desktop apps in C# and Java, and compilers";
     public string Practising = "REST APIs, MongoDB & SQL database design";
     public string Improving = "OOP, clean code & data validation";
     public string Learning  = "New tools & frameworks every day";
 
     public string[] Stack => new[] {
         "React", "Node.js", "Express", "MongoDB",
-        "C", "C#", "Java", "WinForms", "Swing",
-        "MySQL", "SQL Server"
+        "C", "C#", "Java", "Python", "WinForms", "Swing",
+        "JFlex", "CUP", "MySQL", "SQL Server"
     };
 
     public string FunFact =>
