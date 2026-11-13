@@ -636,7 +636,13 @@ query($login: String!) {
         url
         primaryLanguage { name }
         defaultBranchRef {
-          target { ... on Commit { messageHeadline committedDate url } }
+          target {
+            ... on Commit {
+              history(first: 20) {
+                nodes { messageHeadline committedDate url parents { totalCount } }
+              }
+            }
+          }
         }
       }
     }
@@ -657,7 +663,10 @@ def fetch_recent_repos(login):
     repos = []
     for repo in nodes:
         # The profile repo itself is skipped: its commits are only README and card updates.
-        commit = (repo.get("defaultBranchRef") or {}).get("target")
+        target = (repo.get("defaultBranchRef") or {}).get("target") or {}
+        history = (target.get("history") or {}).get("nodes") or []
+        # Show the newest real change, not a "Merge pull request" commit (merges have 2 parents)
+        commit = next((c for c in history if c["parents"]["totalCount"] <= 1), history[0] if history else None)
         if repo["name"].lower() == login.lower() or not commit:
             continue
         repos.append({
