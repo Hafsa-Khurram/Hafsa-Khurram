@@ -5,7 +5,7 @@
 
 <h1><img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="30px"/> Hi there! I'm Hafsa Khurram</h1>
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=24&pause=1200&color=C471ED&center=true&vCenter=true&width=600&lines=Software+Developer;COMSATS+Graduate;MERN+Stack+Web+Developer;React+%2B+Node.js+%2B+MongoDB;C%2C+C%23+%26+Java+Programmer;Windows+Forms+%26+.NET+Desktop+Apps;MySQL+%26+SQL+Server;Always+Learning+%26+Building" alt="Typing SVG" />
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=24&pause=1200&color=C471ED&center=true&vCenter=true&width=600&lines=Software+Developer;COMSATS+Graduate;MERN+Stack+Web+Developer;React+%2B+Node.js+%2B+MongoDB;Compiler+Construction+with+JFlex+%26+CUP;C%2C+C%23+%26+Java+Programmer;Windows+Forms+%26+.NET+Desktop+Apps;MySQL+%26+SQL+Server;Always+Learning+%26+Building" alt="Typing SVG" />
 
 <p>
   <a href="https://github.com/Hafsa-Khurram?tab=followers"><img src="https://img.shields.io/github/followers/Hafsa-Khurram?label=Followers&style=for-the-badge&color=C471ED&labelColor=1a1b27" alt="Followers"/></a>
@@ -33,7 +33,7 @@
 
 <table>
   <tr>
-    <td align="center" width="50%"><b>💻 Languages</b><br/><br/><img src="https://skillicons.dev/icons?i=c,cs,java,js" /></td>
+    <td align="center" width="50%"><b>💻 Languages</b><br/><br/><img src="https://skillicons.dev/icons?i=c,cs,java,js,py" /></td>
     <td align="center" width="50%"><b>🌐 Web (MERN)</b><br/><br/><img src="https://skillicons.dev/icons?i=html,css,react,nodejs,express,vite" /></td>
   </tr>
   <tr>
@@ -42,7 +42,7 @@
   </tr>
 </table>
 
-<sub>React · React Router · Node.js · Express · MongoDB & Mongoose · REST APIs · JWT authentication · Java Swing · JDBC · C# Windows Forms · LINQ to SQL · SQL (joins, views, triggers, stored functions, transactions) · OOP · File handling</sub>
+<sub>React · React Router · Node.js · Express · MongoDB & Mongoose · REST APIs · JWT authentication · Java Swing · JDBC · C# Windows Forms · LINQ to SQL · SQL (joins, views, triggers, stored functions, transactions) · Compiler construction (JFlex, CUP, syntax trees, semantic analysis) · Python & CustomTkinter · OOP · File handling</sub>
 
 </div>
 
@@ -55,6 +55,7 @@
 | Project | Description | Tech |
 |:--|:--|:--:|
 | 🧳 **[GoTravel: Travel Agency Management System](https://github.com/Hafsa-Khurram/Web-Technology)** | MERN web app with three portals: customers search and book tour packages with promo codes, track bookings and download invoices; agents manage packages, bookings, payments and discounts; admins manage users and see a revenue analytics dashboard. JWT login with roles, ratings and reviews, booking notifications and a mobile-friendly design. **Nov 2026:** full review with 23 fixes (bookings, time zones, mobile layout) and up-to-date dependencies with 0 known vulnerabilities | <img src="https://skillicons.dev/icons?i=react,nodejs,express,mongodb" width="120"/> |
+| 🧠 **[BeginnerScript Compiler](https://github.com/Hafsa-Khurram/Compiler-Construction)** | Compiler for BeginnerScript, a small language for beginners: JFlex scanner, CUP grammar that builds a syntax tree, semantic analysis (scopes, undeclared names, argument counts, type checks) and an interpreter with input, loops, functions with parameters and recursion. Clear error messages with line and column, plus Compiler Studio, a desktop IDE with syntax colours and tabs for tokens, syntax tree, problems and output. Handles Urdu text and is covered by 16 automated tests | <img src="https://skillicons.dev/icons?i=java,py" width="60"/> |
 | 🏦 **[Banking System](https://github.com/Hafsa-Khurram/Programming-Fundamental)** | Console banking app: PIN-protected ATM (balance, withdraw, deposit, fast cash) and customer records with full CRUD and file storage | <img src="https://skillicons.dev/icons?i=c" width="30"/> |
 | 🌍 **[Travel Agency Management System](https://github.com/Hafsa-Khurram/Database-System-MySQL)** | Java Swing + MySQL app: customers book tour packages, bus tickets and hotels; admins approve bookings, manage the catalogue and see live reports. Normalized schema with triggers, views, a stored function and safe transactions (no overbooking) | <img src="https://skillicons.dev/icons?i=java,mysql" width="60"/> |
 | ✈️ **[Travel Manager](https://github.com/Hafsa-Khurram/Visual-Programming)** | C# Windows Forms + SQL Server app: sign up / log in, manage travel packages, bookings and payments, with view, edit and delete screens. Uses LINQ to SQL, input validation and automatic database setup | <img src="https://skillicons.dev/icons?i=cs,dotnet" width="60"/> |
@@ -72,7 +73,7 @@
 
 | Project | Language | Latest change | Date |
 |:--|:--:|:--|:--:|
-| 📁 **[Compiler-Construction](https://github.com/Hafsa-Khurram/Compiler-Construction)** | <img src="https://skillicons.dev/icons?i=py" width="24" title="Python"/> | [Add a README with screenshots, setup steps and a language guide](https://github.com/Hafsa-Khurram/Compiler-Construction/commit/0fc84be9dea70ea9fc6647f78826498a70d4dcec) | 13 Nov 2026 |
+| 📁 **[Compiler-Construction](https://github.com/Hafsa-Khurram/Compiler-Construction)** | <img src="https://skillicons.dev/icons?i=py" width="24" title="Python"/> | [Start Compiler Studio with the py launcher on Windows](https://github.com/Hafsa-Khurram/Compiler-Construction/commit/b6ddebeae8b1ca47770201a5304497b4df7cf187) | 23 Nov 2026 |
 | 📁 **[Web-Technology](https://github.com/Hafsa-Khurram/Web-Technology)** | <img src="https://skillicons.dev/icons?i=js" width="24" title="JavaScript"/> | [Add recent updates and a Node 20 tip to the README](https://github.com/Hafsa-Khurram/Web-Technology/commit/b6199cc31c5638bf40f0f541dac5b0519fae7de1) | 13 Nov 2026 |
 | 📁 **[Visual-Programming](https://github.com/Hafsa-Khurram/Visual-Programming)** | <img src="https://skillicons.dev/icons?i=cs" width="24" title="C#"/> | [Show the new look in the README screenshots](https://github.com/Hafsa-Khurram/Visual-Programming/commit/c4bcf249e264b7694c9e944782d7ea6e02312997) | 03 Oct 2026 |
 | 📁 **[Database-System-MySQL](https://github.com/Hafsa-Khurram/Database-System-MySQL)** | <img src="https://skillicons.dev/icons?i=java" width="24" title="Java"/> | [Add Travel Agency Management System (Java Swing + MySQL)](https://github.com/Hafsa-Khurram/Database-System-MySQL/commit/8cbb9953253e64d159a88474579246a85342b9c9) | 02 Oct 2026 |
@@ -120,15 +121,15 @@
 ```csharp
 public class HafsaKhurram
 {
-    public string Building  = "MERN web apps & desktop apps in C# and Java";
+    public string Building  = "MERN web apps, desktop apps in C# and Java, and compilers";
     public string Practising = "REST APIs, MongoDB & SQL database design";
     public string Improving = "OOP, clean code & data validation";
     public string Learning  = "New tools & frameworks every day";
 
     public string[] Stack => new[] {
         "React", "Node.js", "Express", "MongoDB",
-        "C", "C#", "Java", "WinForms", "Swing",
-        "MySQL", "SQL Server"
+        "C", "C#", "Java", "Python", "WinForms", "Swing",
+        "JFlex", "CUP", "MySQL", "SQL Server"
     };
 
     public string FunFact =>
